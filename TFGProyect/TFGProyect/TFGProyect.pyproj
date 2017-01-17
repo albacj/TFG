@@ -22,7 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CP-ABE.py">
+    <Compile Include="CP_ABE.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SSE.py">
