@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BilinearMaps.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CP_ABE.py">
       <SubType>Code</SubType>
     </Compile>
