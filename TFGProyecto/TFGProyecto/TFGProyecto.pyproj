@@ -3,15 +3,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>398234b1-f37c-4629-a769-65d0e0d843ef</ProjectGuid>
+    <ProjectGuid>70909123-b2cd-4718-8430-3a5177c52031</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TFGProyect.py</StartupFile>
+    <StartupFile>TFGProyecto.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>TFGProyect</Name>
-    <RootNamespace>TFGProyect</RootNamespace>
+    <Name>TFGProyecto</Name>
+    <RootNamespace>TFGProyecto</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,22 +21,16 @@
     <DebugSymbols>true</DebugSymbols>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="BilinearMaps.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CP_ABE.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SSE.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TFGProyect.py" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BilinearMaps.py" />
+    <Compile Include="CP_ABE.py" />
+    <Compile Include="SSE.py" />
+    <Compile Include="TFGProyecto.py" />
+  </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
   <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

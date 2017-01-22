@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TFGProyect", "TFGProyect\TFGProyect.pyproj", "{398234B1-F37C-4629-A769-65D0E0D843EF}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TFGProyecto", "TFGProyecto\TFGProyecto.pyproj", "{70909123-B2CD-4718-8430-3A5177C52031}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,8 +11,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{398234B1-F37C-4629-A769-65D0E0D843EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{398234B1-F37C-4629-A769-65D0E0D843EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70909123-B2CD-4718-8430-3A5177C52031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70909123-B2CD-4718-8430-3A5177C52031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
