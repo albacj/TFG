@@ -7,14 +7,17 @@ class BilinearMaps(object):
         self.g = []
         self.gt = []
 
-    def isCyclic(g):
-        pass
-
     def zetaP(p):
         z = []
-        for i in range(p):
-            z.append(i)
+        for i in range(p-1):
+            z.append(i+1)
         return list(z)
+
+    def cyclic(p):
+        g = BilinearMaps.zetaP(p)
+        #return g
+        for i in range(g):
+            pass
 
     def notPLD():
         pass

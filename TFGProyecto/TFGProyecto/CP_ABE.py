@@ -10,6 +10,9 @@ class CP_ABE(object):
         self.message = message
         self.structureA = structureA
 
+    def phiFunction(n):
+        pass #http://blog.hackxcrack.net/introduccion-a-la-criptografia-moderna-con-python-2-rsa/
+
     def setup(phi,u): #u es un número
         pk = list()
         h = []
