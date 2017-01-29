@@ -2,10 +2,8 @@ import numpy
 
 class BilinearMaps(object):
     
-    def __init__(self, p, g, gt):
+    def __init__(self, p):
         self.p = p
-        self.g = []
-        self.gt = []
 
     def zetaP(p):
         z = []
@@ -13,6 +11,7 @@ class BilinearMaps(object):
             z.append(i+1)
         return list(z)
 
+    #Genera ciclo de un número cualquiera
     def cyclic(p):
         g = BilinearMaps.zetaP(p)
         i = 1
@@ -31,13 +30,17 @@ class BilinearMaps(object):
             found = (len(gCyclic) == p-1)
             i = i+1
 
-        return gCyclic, generator
+        return gCyclic
 
+    #Problema de logaritmo discreto es infactible
     def notPLD():
         pass
 
-    def e(elem1, elem2):
-        pass
+    #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada
+    def e(c):
+        return numpy.multiply(c, c)
+
+    #Proppiedades:
 
     def bilinear():
         pass
