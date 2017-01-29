@@ -36,8 +36,9 @@ class BilinearMaps(object):
     def notPLD(c1, c2):
         c1 = BilinearMaps.zetaP(p)
         c2 = BilinearMaps.cyclic(p)
+        pass
 
-    #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada
+    #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada: G x G -> Gt
     def e(c,p):
         #return numpy.multiply(c, c)
         
@@ -54,7 +55,7 @@ class BilinearMaps(object):
 
     #Propiedades:
 
-    def bilinear():
+    def bilinear(c):
         pass
 
     def nonDegenerate():
