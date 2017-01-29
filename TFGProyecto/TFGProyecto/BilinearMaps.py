@@ -37,10 +37,21 @@ class BilinearMaps(object):
         pass
 
     #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada
-    def e(c):
-        return numpy.multiply(c, c)
+    def e(c,p):
+        #return numpy.multiply(c, c)
+        
+        # si tiene que ser mod p:
+        gt = numpy.multiply(c,c)
+        gtSol = []
 
-    #Proppiedades:
+        for item in gt:
+            item = item % p
+            gtSol.append(item)
+
+        return gtSol
+
+
+    #Propiedades:
 
     def bilinear():
         pass
