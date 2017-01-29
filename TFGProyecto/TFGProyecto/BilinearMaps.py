@@ -16,18 +16,22 @@ class BilinearMaps(object):
     def cyclic(p):
         g = BilinearMaps.zetaP(p)
         i = 1
-        while(i <= len(g)):
+        found = False
+
+        while(i <= len(g) and not found):
             gCyclic = []
-            alpha = i
-
-            for x in g:
-                gCyclic.append((alpha**x) % p)
+            generator = i
             
-            for elem in gCyclic: #si todos los elementos del ciclo son distintos entre ellos, ciclo válido
-                pass
+            for x in g:
+                elem = (generator**x) % p
 
+                if elem not in gCyclic:
+                    gCyclic.append(elem)
+
+            found = (len(gCyclic) == p-1)
             i = i+1
-            print("Ciclo con generador " + str(i-1) + ": " + str(gCyclic))
+
+        return gCyclic, generator
 
     def notPLD():
         pass
