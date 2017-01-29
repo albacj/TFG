@@ -33,8 +33,9 @@ class BilinearMaps(object):
         return gCyclic
 
     #Problema de logaritmo discreto es infactible
-    def notPLD():
-        pass
+    def notPLD(c1, c2):
+        c1 = BilinearMaps.zetaP(p)
+        c2 = BilinearMaps.cyclic(p)
 
     #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada
     def e(c,p):
