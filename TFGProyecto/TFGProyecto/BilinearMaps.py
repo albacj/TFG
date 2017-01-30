@@ -58,24 +58,38 @@ class BilinearMaps(object):
     #Propiedades:
 
     def bilinear(p):
+
         satisfied = False
+        pVBefore = []
+        qVBefore = []
+
+        g = BilinearMaps.zetaP(p)
 
         while(satisfied):
 
-            g = BilinearMaps.zetaP(p)
-            gprima = g[3:6]
-            print(gprima)
             a = g[random.randint(0,p-1)]
             b = g[random.randint(0,p-1)]
+
             i = random.randint(0,p-1)
             j = random.randint(0,p-1)
-            p = g[0: random.randint(1,p-1)]
-            q = g[0: random.randint(1,p-1)]
-            print(p,q)
-            #print(a,b)
+            pV = g[0: i]
+            qV = g[0: j]
 
+            for item in pV:
+                pVBefore.append(item**a)
 
-        #return satisfied
+            for item in qV:
+                qVBefore.append(item**b)
+
+            resBefore = BilinearMaps.e(pVBefore, qVBefore, 11)
+
+            resAfter = BilinearMaps.e(pV, qV, 11)
+            resAfter = resAfter**(a*b)
+
+            if(resBefore == resAfter):
+                satisfied = True
+            
+        return satisfied
 
     def nonDegenerate():
         pass
