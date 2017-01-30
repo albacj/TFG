@@ -65,7 +65,7 @@ class BilinearMaps(object):
 
         g = BilinearMaps.zetaP(p)
 
-        while(satisfied):
+        while(satisfied == False):
 
             a = g[random.randint(0,p-1)]
             b = g[random.randint(0,p-1)]
@@ -87,7 +87,9 @@ class BilinearMaps(object):
             resAfter = resAfter**(a*b)
 
             if(resBefore == resAfter):
-                satisfied = True
+                break
+
+            satisfied = True
             
         return satisfied
 
