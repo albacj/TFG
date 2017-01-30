@@ -1,4 +1,7 @@
 import numpy
+import random
+
+from random import randrange
 
 class BilinearMaps(object):
     
@@ -39,11 +42,11 @@ class BilinearMaps(object):
         pass
 
     #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada: G x G -> Gt
-    def e(c,p):
+    def e(c1,c2,p):
         #return numpy.multiply(c, c)
         
         # si tiene que ser mod p:
-        gt = numpy.multiply(c,c)
+        gt = numpy.multiply(c1,c2)
         gtSol = []
 
         for item in gt:
@@ -52,11 +55,27 @@ class BilinearMaps(object):
 
         return gtSol
 
-
     #Propiedades:
 
-    def bilinear(c):
-        pass
+    def bilinear(p):
+        satisfied = False
+
+        while(satisfied):
+
+            g = BilinearMaps.zetaP(p)
+            gprima = g[3:6]
+            print(gprima)
+            a = g[random.randint(0,p-1)]
+            b = g[random.randint(0,p-1)]
+            i = random.randint(0,p-1)
+            j = random.randint(0,p-1)
+            p = g[0: random.randint(1,p-1)]
+            q = g[0: random.randint(1,p-1)]
+            print(p,q)
+            #print(a,b)
+
+
+        #return satisfied
 
     def nonDegenerate():
         pass
