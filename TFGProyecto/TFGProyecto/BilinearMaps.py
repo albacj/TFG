@@ -42,56 +42,57 @@ class BilinearMaps(object):
         pass
 
     #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada: G x G -> Gt
-    def e(c1,c2,p):
-        #return numpy.multiply(c, c)
+    def e(c1,c2):
+        #return numpy.multiply(c1, c2)
         
         # si tiene que ser mod p:
         gt = numpy.multiply(c1,c2)
         gtSol = []
 
         for item in gt:
-            item = item % p
+            item = item % (len(gt)+1) # len + 1 es p
             gtSol.append(item)
 
         return gtSol
 
     #Propiedades:
 
-    def bilinear(p):
+    def bilinear():
+        pass
 
-        satisfied = False
-        pVBefore = []
-        qVBefore = []
+        #satisfied = False
+        #pVBefore = []
+        #qVBefore = []
 
-        g = BilinearMaps.zetaP(p)
+        #g = BilinearMaps.zetaP(p)
 
-        while(satisfied == False):
+        #while(satisfied == False):
 
-            a = g[random.randint(0,p-1)]
-            b = g[random.randint(0,p-1)]
+            #a = g[random.randint(0,p-1)]
+            #b = g[random.randint(0,p-1)]
 
-            i = random.randint(0,p-1)
-            j = random.randint(0,p-1)
-            pV = g[0: i]
-            qV = g[0: j]
+            #i = random.randint(0,p-1)
+            #j = random.randint(0,p-1)
+            #pV = g[0: i]
+            #qV = g[0: j]
 
-            for item in pV:
-                pVBefore.append(item**a)
+            #for item in pV:
+                #pVBefore.append(item**a)
 
-            for item in qV:
-                qVBefore.append(item**b)
+            #for item in qV:
+                #qVBefore.append(item**b)
 
-            resBefore = BilinearMaps.e(pVBefore, qVBefore, 11)
+            #resBefore = BilinearMaps.e(pVBefore, qVBefore, 11)
 
-            resAfter = BilinearMaps.e(pV, qV, 11)
-            resAfter = resAfter**(a*b)
+            #resAfter = BilinearMaps.e(pV, qV, 11)
+            #resAfter = resAfter**(a*b)
 
-            if(resBefore == resAfter):
-                break
+            #if(resBefore == resAfter):
+                #break
 
-            satisfied = True
+            #satisfied = True
             
-        return satisfied
+        #return satisfied
 
     def nonDegenerate():
         pass

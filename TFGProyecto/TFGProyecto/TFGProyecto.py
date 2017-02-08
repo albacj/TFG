@@ -8,10 +8,15 @@ print(ciclo1)
 
 print("\n")
 
-print("G x G -> Gt: ")
-print(BilinearMaps.BilinearMaps.e(ciclo1, ciclo1, 11))
+print("G x G -> Gt1: ")
+print(BilinearMaps.BilinearMaps.e(ciclo1, ciclo1))
+
+print("\n")
+
+print("G x G -> Gt2: ")
+print(BilinearMaps.BilinearMaps.e(ciclo2, ciclo2))
 
 print("\n")
 
 print("Propiedad bilineal: ")
-print(BilinearMaps.BilinearMaps.bilinear(11))
+print(BilinearMaps.BilinearMaps.bilinear())
