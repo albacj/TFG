@@ -28,6 +28,9 @@
   <ItemGroup>
     <Compile Include="BilinearMaps.py" />
     <Compile Include="CP_ABE.py" />
+    <Compile Include="LSSS.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SSE.py" />
     <Compile Include="TFGProyecto.py" />
   </ItemGroup>

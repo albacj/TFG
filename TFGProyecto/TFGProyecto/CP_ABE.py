@@ -14,26 +14,10 @@ class CP_ABE(object):
         pass #http://blog.hackxcrack.net/introduccion-a-la-criptografia-moderna-con-python-2-rsa/
 
     def setup(phi,u): #u es un número
-        pk = list()
-        h = []
-        #llamar a la función de mapa bilineal
-        while(u>0):
-            h.append(_random.Random(g)) #un g que hay de antes
-            u = u-1
-        h.sort()
-        a = _random.Random(BilinearMaps.BilinearMaps.zetaP(p))
-        alpha = _random.Random(BilinearMaps.BilinearMaps.zetaP(p))
-        
-        #actualización de valores
-        pk.append(g)
-        pk.append(gen)
-        pk.append(BilinearMaps.BilinearMaps.e(gen,gen)**alpha)
-        pk.append(gen**a)
-        pk.append(h)
-        msk = gen**alpha
+       pass
 
-        #devuelve pk y msk
-        return pk, msk
+       #devuelve pk y msk
+       return pk, msk
         
 
     def keyGen(msk,s):
