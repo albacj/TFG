@@ -7,7 +7,7 @@ class LSSS(object):
     def accessStructure():
         pass
 
-    #Definición 2
+    #Definicion 2
     def lsss():
         pass
 
