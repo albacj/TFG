@@ -43,56 +43,55 @@ class BilinearMaps(object):
 
     #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada: G x G -> Gt
     def e(c1,c2):
-        #return numpy.multiply(c1, c2)
+        #return numpy.multiply(c1, c2) # si tiene que ser un vector
+        return numpy.inner(c1,c2)
         
-        # si tiene que ser mod p:
-        gt = numpy.multiply(c1,c2)
-        gtSol = []
+        # si tiene que ser mod p, además de ser un vector:
+        #gt = numpy.multiply(c1,c2)
+        #gtSol = []
 
-        for item in gt:
-            item = item % (len(gt)+1) # len + 1 es p
-            gtSol.append(item)
+        #for item in gt:
+        #    item = item % (len(gt)+1) # len + 1 es p
+        #    gtSol.append(item)
 
-        return gtSol
+        #return gtSol
 
     #Propiedades:
 
-    def bilinear():
-        pass
+    def bilinear(c):
+        satisfied = False
 
-        #satisfied = False
-        #pVBefore = []
-        #qVBefore = []
+        while(not satisfied):
 
-        #g = BilinearMaps.zetaP(p)
+            # a y b son dos numeros aleatorios de 0 a mod p
+            a = random.randint(1,len(c)+1)
+            b = random.randint(1,len(c)+1)
 
-        #while(satisfied == False):
+            # k es el tam del subconjunto
+            k = random.randint(0,len(c))
 
-            #a = g[random.randint(0,p-1)]
-            #b = g[random.randint(0,p-1)]
+            # subconjuntos aleatorios de c
+            p = random.sample(c,k)
+            q = random.sample(c,k)
 
-            #i = random.randint(0,p-1)
-            #j = random.randint(0,p-1)
-            #pV = g[0: i]
-            #qV = g[0: j]
+            pElevate = []
+            qElevate = []
 
-            #for item in pV:
-                #pVBefore.append(item**a)
+            for x in p:
+                pElevate.append(x**a)
 
-            #for item in qV:
-                #qVBefore.append(item**b)
+            for x in q:
+                qElevate.append(x**b)
 
-            #resBefore = BilinearMaps.e(pVBefore, qVBefore, 11)
+            eBefore = BilinearMaps.e(pElevate,qElevate)
+            eProvisional = BilinearMaps.e(p,q)
+            eAfter = eProvisional**(a*b)
 
-            #resAfter = BilinearMaps.e(pV, qV, 11)
-            #resAfter = resAfter**(a*b)
+            if(eBefore == eAfter):
+                satisfied = True
 
-            #if(resBefore == resAfter):
-                #break
+        return satisfied
 
-            #satisfied = True
-            
-        #return satisfied
 
     def nonDegenerate():
         pass

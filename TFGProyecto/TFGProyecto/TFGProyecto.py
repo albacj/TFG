@@ -19,4 +19,4 @@ print(BilinearMaps.BilinearMaps.e(ciclo2, ciclo2))
 print("\n")
 
 print("Propiedad bilineal: ")
-print(BilinearMaps.BilinearMaps.bilinear())
+print(BilinearMaps.BilinearMaps.bilinear(ciclo1))
