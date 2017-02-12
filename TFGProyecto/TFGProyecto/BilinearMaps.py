@@ -92,7 +92,6 @@ class BilinearMaps(object):
 
         return satisfied
 
-
     def nonDegenerate():
         pass
 
