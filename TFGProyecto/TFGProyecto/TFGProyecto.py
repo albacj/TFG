@@ -20,3 +20,8 @@ print("\n")
 
 print("Propiedad bilineal: ")
 print(BilinearMaps.BilinearMaps.bilinear(ciclo1))
+
+print("\n")
+
+print("Propiedad no degenerativa: ")
+print(BilinearMaps.BilinearMaps.nonDegenerate(ciclo1))

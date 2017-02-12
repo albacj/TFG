@@ -92,8 +92,18 @@ class BilinearMaps(object):
 
         return satisfied
 
-    def nonDegenerate():
-        pass
+    def nonDegenerate(c):
+        satisfied = False
+
+        while(not satisfied):
+            k = random.randint(0,len(c))
+            p = random.sample(c,k)
+            eP = BilinearMaps.e(p,p)
+
+            if(eP != 1):
+                satisfied = True
+
+        return satisfied
 
     def computable():
         pass
