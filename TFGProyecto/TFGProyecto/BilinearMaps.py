@@ -68,7 +68,7 @@ class BilinearMaps(object):
             b = random.randint(1,len(c)+1)
 
             # k es el tam del subconjunto
-            k = random.randint(0,len(c))
+            k = random.randint(1,len(c))
 
             # subconjuntos aleatorios de c
             p = random.sample(c,k)
@@ -90,6 +90,7 @@ class BilinearMaps(object):
             if(eBefore == eAfter):
                 satisfied = True
 
+        print(eBefore, eAfter)
         return satisfied
 
     def nonDegenerate(c):
@@ -103,6 +104,7 @@ class BilinearMaps(object):
             if(eP != 1):
                 satisfied = True
 
+        print(eP)
         return satisfied
 
     def computable():

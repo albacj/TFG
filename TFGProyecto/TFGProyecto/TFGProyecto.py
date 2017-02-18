@@ -1,4 +1,5 @@
 import BilinearMaps
+import LSSS
 
 ciclo1= BilinearMaps.BilinearMaps.cyclic(11)
 ciclo2 = BilinearMaps.BilinearMaps.cyclic(13)
@@ -30,3 +31,8 @@ print("\n")
 
 print("Propiedad no degenerativa: ")
 print(BilinearMaps.BilinearMaps.nonDegenerate(ciclo1))
+
+print("\n")
+
+print("Access structure: ")
+print(LSSS.LSSS.accessStructure(ciclo2))
