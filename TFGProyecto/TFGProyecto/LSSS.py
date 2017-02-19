@@ -1,6 +1,9 @@
 import BilinearMaps
 import random
 
+from itertools import chain
+from itertools import combinations
+
 class LSSS(object):
 
     def __init__(self):
@@ -9,38 +12,13 @@ class LSSS(object):
     #Definicion 1
     def accessStructure(c):
 
-        def isEven(x):
-            return x % 2 == 0
+        def powerSet(s):
+            return list(chain.from_iterable(combinations(s, r) for r in range(len(s)+1)))
         
-        def powerPack(c): #conjunto potencia
-            n = len(c)
-
-            # crear lista con 2^n conjuntos vacios
-            subsets = []
-            for i in range(2 ** n):
-                subsets.append(list())
-
-            # convierto a lista para poder ir recorriendo los elementos por su indice i
-            elements = list(c)
-
-            for i in range(n):
-                x = elements[i]
-                for j in range(2 ** n):
-                    if isEven(j / (2 ** i)):
-                        subsets[j].append(x)
-
-            subsets2 = []
-            for i in subsets:
-                if i not in subsets2:
-                    subsets2.append(i)
-
-            subsets2 = sorted(subsets2)
-            return subsets2
-        
-        parties = powerPack(c)
+        parties = powerSet(c)
 
         # posible tam de a
-        i = random.randint(1,len(parties))
+        i = random.randint(0,len(parties))
         
         # coleccion a
         a = random.sample(parties,i)
@@ -48,21 +26,28 @@ class LSSS(object):
         def isMonotone(a):
             monotone = False
             
-            j = random.randint(1,len(parties))
-            k = random.randint(1,len(parties))
-
-            b = random.sample(parties,j)
-            c = random.sample(parties,k)
-
             while(not monotone):
-                if((b in a) and (b in c)):
-                    if(c in a):
+                k = random.randint(0,len(a)) # tam y coleccion c
+                c = random.sample(a,k)
+
+                j = random.randint(0,len(c)) # tam y coleccion b
+                b = random.sample(c,j)
+
+                if(set(b) <= set(a) and set(b) <= set(c)):
+                    if(set(c) <= set(a)):
                         monotone = True
 
             return monotone
 
         isTrue = isMonotone(a)
-        print(isTrue)
+        
+        def withoutEmpty(a):
+            for x in a:
+                if x == set():
+                    a.remove(x)
+            return a
+
+        return a
 
     #Definicion 2
     def lsss():

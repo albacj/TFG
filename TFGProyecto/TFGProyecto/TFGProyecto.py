@@ -2,7 +2,7 @@ import BilinearMaps
 import LSSS
 
 ciclo1= BilinearMaps.BilinearMaps.cyclic(11)
-ciclo2 = BilinearMaps.BilinearMaps.cyclic(13)
+ciclo2 = BilinearMaps.BilinearMaps.cyclic(7)
 
 print("Ciclo 1: ")
 print(ciclo1)
