@@ -36,3 +36,7 @@ print("\n")
 
 print("Access structure: ")
 print(LSSS.LSSS.accessStructure(ciclo2))
+
+print("\n")
+print("LSSS: is linear: ")
+print(LSSS.LSSS.lsss(ciclo2))
