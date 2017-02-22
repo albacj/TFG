@@ -10,8 +10,18 @@ class CP_ABE(object):
         self.message = message
         self.structureA = structureA
 
-    def phiFunction(n):
-        pass #http://blog.hackxcrack.net/introduccion-a-la-criptografia-moderna-con-python-2-rsa/
+    def phiFunction(n): #n es un numero dado
+        
+        def isPrime(a):
+            return not ( a < 2 or any(a % i == 0 for i in range(2, int(a ** 0.5) + 1)))
+
+        y = n
+
+        for i in range(2,n+1):
+            if isPrime(i) and n % i == 0:
+                y = y * (1 - 1/i)
+
+        return int(y)
 
     def setup(phi,u): #u es un número
        pass

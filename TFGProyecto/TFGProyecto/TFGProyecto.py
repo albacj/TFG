@@ -1,5 +1,6 @@
 import BilinearMaps
 import LSSS
+import CP_ABE
 
 ciclo1= BilinearMaps.BilinearMaps.cyclic(11)
 ciclo2 = BilinearMaps.BilinearMaps.cyclic(7)
@@ -35,8 +36,13 @@ print(BilinearMaps.BilinearMaps.nonDegenerate(ciclo1))
 print("\n")
 
 print("Access structure: ")
-print(LSSS.LSSS.accessStructure(ciclo2))
+print(LSSS.LSSS.accessStructure(ciclo1))
 
 print("\n")
+
 print("LSSS: is linear: ")
-print(LSSS.LSSS.lsss(ciclo2))
+print(LSSS.LSSS.lsss(ciclo1))
+
+print("\n")
+print("Funcion phi: ")
+print(CP_ABE.CP_ABE.phiFunction(16))
