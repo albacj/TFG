@@ -33,11 +33,11 @@ class BilinearMaps(object):
             found = (len(gCyclic) == p-1)
             i = i+1
 
-        return gCyclic
+        return gCyclic #, generator
 
     #Problema de logaritmo discreto es infactible
     def notPLD(c1, c2):
-        c1 = BilinearMaps.zetaP(p)
+        c1 = BilinearMaps.cyclic(p)
         c2 = BilinearMaps.cyclic(p)
         pass
 
