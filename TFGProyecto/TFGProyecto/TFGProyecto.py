@@ -3,15 +3,18 @@ import LSSS
 import CP_ABE
 
 ciclo1= BilinearMaps.BilinearMaps.cyclic(11)
+generador1 = BilinearMaps.BilinearMaps.cyclicGen(11)
+
 ciclo2 = BilinearMaps.BilinearMaps.cyclic(7)
+generador2 = BilinearMaps.BilinearMaps.cyclicGen(7)
 
 print("Ciclo 1: ")
-print(ciclo1)
+print(ciclo1, generador1)
 
 print("\n")
 
 print("Ciclo 2: ")
-print(ciclo2)
+print(ciclo2, generador2)
 
 print("\n")
 
@@ -44,5 +47,10 @@ print("LSSS: is linear: ")
 print(LSSS.LSSS.lsss(ciclo1))
 
 print("\n")
+
 print("Funcion phi: ")
 print(CP_ABE.CP_ABE.phiFunction(16))
+
+print("\n")
+print("Setup: ")
+print(CP_ABE.CP_ABE.setup(None, None)) # cambiar mas tarde

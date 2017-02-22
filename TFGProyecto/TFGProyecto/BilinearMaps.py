@@ -109,3 +109,24 @@ class BilinearMaps(object):
 
     def computable():
         pass
+
+    # Miscelánea
+    def cyclicGen(p):
+        g = BilinearMaps.zetaP(p)
+        i = 1
+        found = False
+
+        while(i <= len(g) and not found):
+            gCyclic = []
+            generator = i
+            
+            for x in g:
+                elem = (generator**x) % p
+
+                if elem not in gCyclic:
+                    gCyclic.append(elem)
+
+            found = (len(gCyclic) == p-1)
+            i = i+1
+
+        return generator #, generator
