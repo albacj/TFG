@@ -63,7 +63,7 @@ class BilinearMaps(object):
 
         while(not satisfied):
 
-            # a y b son dos numeros aleatorios de 0 a mod p
+            # a y b son dos numeros aleatorios
             a = random.randint(1,len(c)+1)
             b = random.randint(1,len(c)+1)
 

@@ -53,4 +53,4 @@ print(CP_ABE.CP_ABE.phiFunction(16))
 
 print("\n")
 print("Setup: ")
-print(CP_ABE.CP_ABE.setup(None, None)) # cambiar mas tarde
+print(CP_ABE.CP_ABE.setup(None, 5)) # cambiar mas tarde
