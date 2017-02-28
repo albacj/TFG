@@ -15,7 +15,7 @@ class CP_ABE(object):
     def phiFunction(n): #n es un numero dado
         
         def isPrime(a):
-            return not ( a < 2 or any(a % i == 0 for i in range(2, int(a ** 0.5) + 1)))
+            return not (a < 2 or any(a % i == 0 for i in range(2, int(a ** 0.5) + 1)))
 
         y = n
 
@@ -25,12 +25,11 @@ class CP_ABE(object):
 
         return int(y)
 
-    def setup(phi,u): # u es un numero que indica cuantos elementos aleatorios de G cogera
+    def setup(phi,u,p): # u es un numero que indica cuantos elementos aleatorios de G cogera # quitar p después
        pk = []
        msk = 0
 
-       group = BilinearMaps.BilinearMaps.cyclic(p)
-       g = BilinearMaps.BilinearMaps.cyclicGen(p)
+       group, g = BilinearMaps.BilinearMaps.cyclic(p)
        eMap = BilinearMaps.BilinearMaps.e(group, group)
 
        def isOk(group):

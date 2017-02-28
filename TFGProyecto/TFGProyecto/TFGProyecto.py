@@ -2,11 +2,9 @@ import BilinearMaps
 import LSSS
 import CP_ABE
 
-ciclo1= BilinearMaps.BilinearMaps.cyclic(11)
-generador1 = BilinearMaps.BilinearMaps.cyclicGen(11)
+ciclo1, generador1= BilinearMaps.BilinearMaps.cyclic(11)
 
-ciclo2 = BilinearMaps.BilinearMaps.cyclic(7)
-generador2 = BilinearMaps.BilinearMaps.cyclicGen(7)
+ciclo2, generador2 = BilinearMaps.BilinearMaps.cyclic(7)
 
 print("Ciclo 1: ")
 print(ciclo1, generador1)
@@ -53,4 +51,4 @@ print(CP_ABE.CP_ABE.phiFunction(16))
 
 print("\n")
 print("Setup: ")
-print(CP_ABE.CP_ABE.setup(None, 5)) # cambiar mas tarde
+print(CP_ABE.CP_ABE.setup(None, 5, 11)) # cambiar mas tarde

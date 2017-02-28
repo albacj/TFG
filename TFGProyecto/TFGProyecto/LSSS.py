@@ -7,8 +7,8 @@ from itertools import combinations
 
 class LSSS(object):
 
-    def __init__(self):
-        pass
+    def __init__(self,c):
+        self.c = c
 
     #Definicion 1
     def accessStructure(c):
