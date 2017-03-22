@@ -75,7 +75,7 @@ class BilinearMaps(object):
             eProvisional = BilinearMaps.e(p,q)
             eAfter = eProvisional**(a*b)
 
-            if(eBefore == eAfter):
+            if(eBefore == eAfter and eBefore != 0):
                 satisfied = True
                 
         print(eBefore, eAfter)
