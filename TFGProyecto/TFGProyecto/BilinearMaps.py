@@ -1,5 +1,6 @@
 import numpy
 import random
+import numbers
 
 from random import randrange
 
@@ -35,26 +36,22 @@ class BilinearMaps(object):
 
         return gCyclic, generator
 
-    #Problema de logaritmo discreto es infactible
-    def notPLD(c1, c2):
-        c1 = BilinearMaps.cyclic(p)
-        c2 = BilinearMaps.cyclic(p)
-        pass
-
     #Definicion de mapa bilineal de la misma dimension que el ciclo dado como entrada: G x G -> Gt
     def e(c1,c2):
-        #return numpy.multiply(c1, c2) # si tiene que ser un vector
-        return numpy.inner(c1,c2)
         
-        # si tiene que ser mod p, además de ser un vector:
-        #gt = numpy.multiply(c1,c2)
-        #gtSol = []
+        #tiene que ser mod p, además de ser un vector:
+        if(c1 is list and len(c1) > 1):
+            gt = numpy.multiply(c1,c2)
+            gtSol = []
 
-        #for item in gt:
-        #    item = item % (len(gt)+1) # len + 1 es p
-        #    gtSol.append(item)
+            for item in gt:
+                item = item % (len(gt)+1) # len + 1 es p
+                gtSol.append(item)
 
-        #return gtSol
+            return gtSol
+
+        else:
+            return numpy.multiply(c1,c2)
 
     #Propiedades:
 
@@ -64,24 +61,15 @@ class BilinearMaps(object):
         while(not satisfied):
 
             # a y b son dos numeros aleatorios
-            a = random.randint(1,len(c)+1)
-            b = random.randint(1,len(c)+1)
+            a = random.randint(1,len(c))
+            b = random.randint(1,len(c))
 
-            # k es el tam del subconjunto
-            k = random.randint(1,len(c))
+            # elementos aleatorios de c
+            p = random.choice(c)
+            q = random.choice(c)
 
-            # subconjuntos aleatorios de c
-            p = random.sample(c,k)
-            q = random.sample(c,k)
-
-            pElevate = []
-            qElevate = []
-
-            for x in p:
-                pElevate.append(x**a)
-
-            for x in q:
-                qElevate.append(x**b)
+            pElevate = (p**a)
+            qElevate = (q**b)
 
             eBefore = BilinearMaps.e(pElevate,qElevate)
             eProvisional = BilinearMaps.e(p,q)
@@ -89,23 +77,19 @@ class BilinearMaps(object):
 
             if(eBefore == eAfter):
                 satisfied = True
-
-        ##print(eBefore, eAfter)
+                
+        print(eBefore, eAfter)
         return satisfied
 
     def nonDegenerate(c):
         satisfied = False
 
         while(not satisfied):
-            k = random.randint(0,len(c))
-            p = random.sample(c,k)
+            p = random.choice(c)
             eP = BilinearMaps.e(p,p)
 
             if(eP != 1):
                 satisfied = True
 
-        ##print(eP)
+        print(eP)
         return satisfied
-
-    def computable():
-        pass
