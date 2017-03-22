@@ -25,7 +25,7 @@ class CP_ABE(object):
 
         return int(y)
 
-    def setup(phi,u,p): # u es un numero que indica cuantos elementos aleatorios de G cogera # quitar p después
+    def setup(phi,u,p): # u es un numero que indica cuantos elementos aleatorios de G cogera
        pk = []
        msk = 0
 
@@ -35,14 +35,15 @@ class CP_ABE(object):
        def isOk(group):
            ok = False
 
-           if((BilinearMaps.BilinearMaps.bilinear(group) and BilinearMaps.BilinearMaps.nonDegenerate(group)) == True): #meter la computable cuando la haga
+           #Si el G cumple las propiedades bilineales y no degenerativas
+           if((BilinearMaps.BilinearMaps.bilinear(group) and BilinearMaps.BilinearMaps.nonDegenerate(group)) == True):
                ok = True
 
            return ok
 
        if(isOk(group) == True):
-           alpha = random.randrange(len(BilinearMaps.BilinearMaps.zetaP(p))+1)
-           a = random.randrange(len(BilinearMaps.BilinearMaps.zetaP(p))+1)
+           alpha = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
+           a = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
 
            h = []
            i = 0

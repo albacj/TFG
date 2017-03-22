@@ -40,15 +40,7 @@ class LSSS(object):
 
             return monotone
 
-        isTrue = isMonotone(a)
-        
-        def withoutEmpty(a):
-            for x in a:
-                if x == set():
-                    a.remove(x)
-            return a
-
-        return a
+        return isMonotone(a), parties
 
     #Definicion 2
     def lsss(c):
