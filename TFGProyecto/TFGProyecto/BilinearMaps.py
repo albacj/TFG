@@ -15,7 +15,7 @@ class BilinearMaps(object):
             z.append(i+1)
         return list(z)
 
-    #Genera ciclo de un número cualquiera
+    #Genera ciclo de un número cualquiera y devuelve junto con el ciclo el primer generador válido
     def cyclic(p):
         g = BilinearMaps.zetaP(p)
         i = 1
