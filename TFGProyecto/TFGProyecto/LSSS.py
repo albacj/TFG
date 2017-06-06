@@ -46,15 +46,20 @@ class LSSS(object):
 
     #Definicion 2
     def lsss(c):
+
         linear = False
 
         setParties = list(chain.from_iterable(combinations(c, r) for r in range(len(c)+1)))
         setParties.sort(key = len)
-        
-        def productIsLinear(setParties):
             
-            for x in setParties: #Las acciones de cada parte en P forman un vector sobre Zp.
-                pass
-            if():
+        for x in setParties: #Las acciones de cada parte en P forman un vector sobre Zp.
+            print(x)
+            #if(x <= BilinearMaps.BilinearMaps.zetaP(c)):
+            #    continue
+
+
+            """if():
                 l = len(setParties)
-                shareGenerateMatrix = np.empty((l,n))
+                shareGenerateMatrix = np.empty((l,n))"""
+
+        return linear
