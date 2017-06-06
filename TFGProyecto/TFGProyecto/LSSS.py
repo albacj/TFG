@@ -18,29 +18,33 @@ class LSSS(object):
         
         parties = powerSet(c)
 
-        # posible tam de a
+        # posible tam de a (A subconjunto de las partes)
         i = random.randint(0,len(parties))
         
         # coleccion a
-        a = random.sample(parties,i)
+        setA = random.sample(parties,i)
+        setB = []
+        setC = []
 
-        def isMonotone(a):
+        def isMonotone(setA):
             monotone = False
             
-            while(not monotone):
-                k = random.randint(0,len(a)) # tam y coleccion c
-                c = random.sample(a,k)
+            while(monotone == False):
+                k = random.randint(0,len(setA)) # tam y coleccion c
+                setC = random.sample(parties,k)
 
-                j = random.randint(0,len(c)) # tam y coleccion b
-                b = random.sample(c,j)
+                setB = random.choice(parties) # b es un elemento aleatorio de las partes
 
-                if(set(b) <= set(a) and set(b) <= set(c)):
-                    if(set(c) <= set(a)):
-                        monotone = True
+                # si b in a y b <= c entonces c in a
+                if(set(setB) in set(setA)):
+                    if(set(setB) <= set(setC)):
+                        if(set(setC) in set(setA)):
+                            monotone = True
+                            break # con la primera comprobación verdadera, basta
 
             return monotone
 
-        return isMonotone(a), parties
+        return isMonotone(setA), parties, setA, setB, setC
 
     #Definicion 2
     def lsss(c):
