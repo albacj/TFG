@@ -23,8 +23,8 @@ class LSSS(object):
         
         # coleccion a
         setA = random.sample(parties,i)
-        setB = []
-        setC = []
+        setB = ()
+        setC = ()
 
         def isMonotone(setA):
             monotone = False
@@ -33,18 +33,16 @@ class LSSS(object):
                 k = random.randint(0,len(setA)) # tam y coleccion c
                 setC = random.sample(parties,k)
 
-                setB = random.choice(parties) # b es un elemento aleatorio de las partes
+                setB = list(random.choice(parties)) # b es un elemento aleatorio de las partes
 
                 # si b in a y b <= c entonces c in a
-                if(set(setB) in set(setA)):
-                    if(set(setB) <= set(setC)):
-                        if(set(setC) in set(setA)):
-                            monotone = True
-                            break # con la primera comprobación verdadera, basta
+                if(not((setB in setA) and (setB <= setC)) or (setC in setA)):
+                    monotone = True
+                break
 
             return monotone
 
-        return isMonotone(setA), parties, setA, setB, setC
+        return isMonotone(setA), parties, setA, setB, setC, len(parties)
 
     #Definicion 2
     def lsss(c):
