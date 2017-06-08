@@ -4,6 +4,7 @@ import numpy as np
 
 from itertools import chain
 from itertools import combinations
+from sympy import Symbol
 
 class LSSS(object):
 
@@ -54,48 +55,58 @@ class LSSS(object):
 
         setParties = list(chain.from_iterable(combinations(c, r) for r in range(len(c)+1)))
         setParties.sort(key = len)
+        setParties.pop(0)
             
         for x in setParties: #Las acciones de cada parte en P forman un vector sobre Zp. 1a condición
 
-            if(x <= BilinearMaps.BilinearMaps.zetaP(c)):
+            if(list(x) <= BilinearMaps.BilinearMaps.zetaP(p)):
                 condition1 = True
                 continue
 
-            maxTam = max(len(x))
+            maxList = max(setParties)
+            maxTam = len(maxList)
 
         l = len(setParties)
         # n <= num elementos del array más grande de setParties para que salga una matriz cuadrada a lo sumo
         n = random.randint(1, maxTam) 
-        #shareGenerateMatrix = np.empty((l,n))
         shareGenerateMatrix = []
         rho = []
         v = []
+        sBig = random.choice(setParties) # S elemento de setParties (A)
         j = []
-        sBig = random.choice(setParties)
-        secret = 0
+        lambdaSub_i = []
+        mv = []
+        secret = Symbol('s') # el secreto que se comparte. Incógnita porque se va resolviendo (s en el documento)
 
         for x in setParties:
             x = list(x)
-            if(len(x) > n):
-                x = x[0:n-1]
+            shareGenerateMatrix.append(x)
 
-            for i in range(l):
-                rho[i+1] = x
-                shareGenerateMatrix.append(rho[i+1])
+        # matriz shareGenerateMatrix M
+        for i in shareGenerateMatrix:
+            if(len(i) > n):
+                i = i[:n]
 
         for i in range(l+1):
             j.append(i+1)
+            if(i in sBig):
+                continue
 
-
+        # preparando el vector v
         v.append(secret)
 
-        for r in range(2, n+1):
-            r = random.randint(BilinearMaps.BilinearMaps.zetaP(p))
+        for r in range(2,n+1):
+            r = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
             v.append(r)
+
+        # vector resultante mv
+        #shareGenerateMatrix = np.asmatrix(shareGenerateMatrix)
+        #v = np.asmatrix(v)
+        #mv = shareGenerateMatrix * v
 
         condition2 = True
 
         if((condition1 and condition2) == True):
             linear = True
 
-        return linear, shareGenerateMatrix
+        return linear, len(shareGenerateMatrix), len(v) #shareGenerateMatrix
