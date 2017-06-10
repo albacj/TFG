@@ -77,20 +77,26 @@ class LSSS(object):
         lambdaSub_i = []
         mv = []
         secret = Symbol('s') # el secreto que se comparte. Incógnita porque se va resolviendo (s en el documento)
+        res = 0
+        omega = []
 
+        # matriz shareGenerateMatrix M
         for x in setParties:
             x = list(x)
             shareGenerateMatrix.append(x)
 
-        # matriz shareGenerateMatrix M
-        for i in shareGenerateMatrix:
-            if(len(i) > n):
-                i = i[:n]
+        for i in range(len(shareGenerateMatrix)):
 
-        for i in range(l+1):
-            j.append(i+1)
-            if(i in sBig):
-                continue
+            e = shareGenerateMatrix[i]
+            
+            if(len(e) > n):
+                e = e[0:n]
+                
+            else:
+                diff = n - len(e)
+                e += [0] * diff
+
+            shareGenerateMatrix[i] = e
 
         # preparando el vector v
         v.append(secret)
@@ -100,13 +106,31 @@ class LSSS(object):
             v.append(r)
 
         # vector resultante mv
-        #shareGenerateMatrix = np.asmatrix(shareGenerateMatrix)
-        #v = np.asmatrix(v)
-        #mv = shareGenerateMatrix * v
+        shareGenerateMatrix = np.reshape(shareGenerateMatrix, (len(shareGenerateMatrix), n))
+        v = np.reshape(v, (n,1))
+        mv = np.dot(shareGenerateMatrix, v)
 
+        # rho de cada i, dato de curiosidad mencionado en el documento
+        for i in mv:
+            rho.append(i)
+
+        # cálculo de lambda sub i para hallar s
+        for i in shareGenerateMatrix:
+            res = np.dot(i,v)
+            lambdaSub_i.append(res)
+
+        for i in range(l+1):
+            j.append(i+1)
+
+            for j in rho:
+                if(j in sBig):
+                    pass
+            #if(i in sBig):
+
+        # ya devolvemos un valor booleano que confirma (o no) si el esquema de compartición secreta es bilineal
         condition2 = True
 
         if((condition1 and condition2) == True):
             linear = True
 
-        return linear, len(shareGenerateMatrix), len(v) #shareGenerateMatrix
+        return linear
