@@ -4,7 +4,7 @@ import numpy as np
 
 from itertools import chain
 from itertools import combinations
-from sympy import Symbol
+from sympy import Symbol, solve
 
 class LSSS(object):
 
@@ -122,10 +122,24 @@ class LSSS(object):
         for i in range(l+1):
             j.append(i+1)
 
-            for j in rho:
-                if(j in sBig):
-                    pass
-            #if(i in sBig):
+        for j in rho:
+            if(j in sBig):
+                continue
+
+        zetas = BilinearMaps.BilinearMaps.zetaP(p)
+        omega = zetas * (int(l / len(zetas)))
+        resto = int(l % len(zetas))
+        omega += zetas[:resto]
+
+        # sumatorio para hallar el secreto
+        sumatorio = 0
+        mul = []
+        mul = [(i * j) for i, j in zip(lambdaSub_i, omega)]
+        sumatorio = sum(list(mul))
+
+        ecuation = 0
+        ecuation = secret - sumatorio
+        print(solve(ecuation))
 
         # ya devolvemos un valor booleano que confirma (o no) si el esquema de compartición secreta es bilineal
         condition2 = True

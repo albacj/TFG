@@ -11,7 +11,7 @@ class BilinearMaps(object):
 
     def zetaP(p):
         z = []
-        for i in range(p):
+        for i in range(p-1):
             z.append(i+1)
         return list(z)
 

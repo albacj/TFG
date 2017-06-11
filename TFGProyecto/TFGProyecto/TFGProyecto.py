@@ -283,6 +283,10 @@ print("\n")
 print("LSSS: is linear: ")
 print(LSSS.LSSS.lsss(ciclo1,11))
 
+'''
+True
+'''
+
 print("\n")
 
 print("Funcion phi: ")
