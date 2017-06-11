@@ -139,7 +139,7 @@ class LSSS(object):
 
         ecuation = 0
         ecuation = secret - sumatorio
-        print(solve(ecuation))
+        mostrar = solve(ecuation)
 
         # ya devolvemos un valor booleano que confirma (o no) si el esquema de compartición secreta es bilineal
         condition2 = True
@@ -147,4 +147,4 @@ class LSSS(object):
         if((condition1 and condition2) == True):
             linear = True
 
-        return linear
+        return linear, mostrar

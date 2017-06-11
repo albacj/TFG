@@ -25,7 +25,7 @@ class CP_ABE(object):
 
         return int(y)
 
-    def setup(phi,u,p): # u es un numero que indica cuantos elementos aleatorios de G cogera
+    def setup(phi,u,p): # u es un numero que indica cuantos elementos aleatorios de G cogerá
        pk = []
        msk = 0
 
