@@ -77,4 +77,4 @@ class CP_ABE(object):
 
     def decrypt(pk,sk,ct):
         pass
-        #devuelve message (no es un parametro derivado)
+        #devuelve message
