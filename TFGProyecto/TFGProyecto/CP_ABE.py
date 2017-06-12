@@ -28,6 +28,7 @@ class CP_ABE(object):
     def setup(phi,u,p): # u es un numero que indica cuantos elementos aleatorios de G cogerá
        pk = []
        msk = 0
+       eMapElevate = []
 
        group, g = BilinearMaps.BilinearMaps.cyclic(p)
        eMap = BilinearMaps.BilinearMaps.e(group, group)
@@ -48,15 +49,18 @@ class CP_ABE(object):
            h = []
            i = 0
 
-           while(i <= u):
+           while(i < u):
                h.append(random.choice(group))
                i = i + 1
             
            msk = g ** alpha
 
+           for elem in eMap:
+               eMapElevate.append(elem ** alpha)
+
            pk.append(group)
            pk.append(g)
-           pk.append(eMap ** alpha)
+           pk.append(eMapElevate)
            pk.append(g ** a)
            pk.append(h)
 

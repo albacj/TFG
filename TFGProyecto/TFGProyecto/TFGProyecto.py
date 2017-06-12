@@ -300,4 +300,9 @@ Funcion phi:
 print("\n")
 
 print("Setup: ")
-print(CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 5, 11))
+print(CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, 11))
+
+'''
+([[2, 4, 8, 5, 10, 9, 7, 3, 6, 1], 2, [16384, 268435456, 0, 1808548329, 276447232, 1796636465, -381759919, 4782969, 1054752768, 1], 8, [4, 5, 9]], 
+128)
+'''
