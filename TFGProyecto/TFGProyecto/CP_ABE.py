@@ -67,10 +67,9 @@ class CP_ABE(object):
            pk.append(g ** a)
            pk.append(h)
 
-       return pk, msk, gElevateA, h
-        
+       return pk, msk, gElevateA, h   
 
-    def keyGen(msk,s):
+    def keyGen(msk,h,p, gElevateA):
         sk = []
         k = 0
         l = 0
@@ -78,10 +77,9 @@ class CP_ABE(object):
         kSubx = []
 
         group, g = BilinearMaps.BilinearMaps.cyclic(p)
-        pk, msk, gElevaleA, h = CP_ABE.setup(phi, u, p)
         t = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
 
-        k = msk * (gElevaleA ** t)
+        k = msk * (gElevateA** t)
         l = g ** t
 
         for x in h: # h es el conjunto de atributos S

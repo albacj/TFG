@@ -309,5 +309,11 @@ print(CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, 11))
 
 print("\n")
 
+pk, msk, gElevaleA, h = CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, 11) 
+
 print("KeyGen: ")
-print(CP_ABE.CP_ABE.keyGen())
+print(CP_ABE.CP_ABE.keyGen(msk, h, 11, gElevaleA))
+
+'''
+[4096, 2, [3, 4, 8]]
+'''
