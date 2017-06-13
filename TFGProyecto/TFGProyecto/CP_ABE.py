@@ -25,9 +25,10 @@ class CP_ABE(object):
 
         return int(y)
 
-    def setup(phi,u,p): # u es un numero que indica cuantos elementos aleatorios de G cogerá
+    def setup(phi,u,p): # u es el número de usuarios
        pk = []
        msk = 0
+       gElevateA = 0
        eMapElevate = []
 
        group, g = BilinearMaps.BilinearMaps.cyclic(p)
@@ -58,18 +59,39 @@ class CP_ABE(object):
            for elem in eMap:
                eMapElevate.append(elem ** alpha)
 
+           gElevateA = g ** a
+
            pk.append(group)
            pk.append(g)
            pk.append(eMapElevate)
            pk.append(g ** a)
            pk.append(h)
 
-       return pk, msk
+       return pk, msk, gElevateA, h
         
 
     def keyGen(msk,s):
-        pass
-        #devuelve sk
+        sk = []
+        k = 0
+        l = 0
+        t = 0
+        kSubx = []
+
+        group, g = BilinearMaps.BilinearMaps.cyclic(p)
+        pk, msk, gElevaleA, h = CP_ABE.setup(phi, u, p)
+        t = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
+
+        k = msk * (gElevaleA ** t)
+        l = g ** t
+
+        for x in h: # h es el conjunto de atributos S
+            kSubx.append(x ** t)
+
+        sk.append(k)
+        sk.append(l)
+        sk.append(kSubx)
+
+        return sk
 
     def encrypt(pk,message,structureA):
         pass
