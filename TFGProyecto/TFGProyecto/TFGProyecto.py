@@ -317,3 +317,7 @@ print(CP_ABE.CP_ABE.keyGen(msk, h, 11, gElevaleA))
 '''
 [4096, 2, [3, 4, 8]]
 '''
+
+print("\n")
+
+print(CP_ABE.CP_ABE.encrypt(pk,"hello world",structureA)) # sustituir si es necesario
