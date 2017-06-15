@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto TFG" company="" webLink="http://" view-date="2017-01-20" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.5" locale="es_ES">
+<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto TFG" company="" webLink="http://" view-date="2017-01-01" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.5" locale="es_ES">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
+    <view zooming-state="default:8" id="gantt-chart">
         <field id="tpd3" name="Nombre" width="135" order="0"/>
         <field id="tpd4" name="Fecha de inicio" width="85" order="1"/>
         <field id="tpd5" name="Fecha de fin" width="76" order="2"/>
@@ -49,9 +49,18 @@
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
         <task id="0" name="Programación" color="#8cb6ce" meeting="false" start="2017-01-22" duration="142" complete="0" priority="4" webLink="https%3A%2F%2Fgithub.com%2Falbacj%2FTFG" expand="true"/>
+        <task id="6" name="Redacción de la memoria" color="#8cb6ce" meeting="false" start="2017-02-27" duration="106" complete="0" expand="true"/>
     </tasks>
-    <resources/>
-    <allocations/>
+    <resources>
+        <resource id="0" name="Programador" function="Default:1" contacts="" phone=""/>
+        <resource id="1" name="Ordenador" function="Default:0" contacts="" phone="">
+            <rate name="standard" value="36000"/>
+        </resource>
+    </resources>
+    <allocations>
+        <allocation task-id="0" resource-id="0" function="Default:1" responsible="true" load="1.0"/>
+        <allocation task-id="6" resource-id="1" function="Default:0" responsible="true" load="1.0"/>
+    </allocations>
     <vacations/>
     <previous/>
     <roles roleset-name="Default"/>
