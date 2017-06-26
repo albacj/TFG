@@ -66,18 +66,9 @@ class LSSS(object):
             maxList = max(setParties)
             maxTam = len(maxList)
 
-        l = len(setParties)
-        # n <= num elementos del array más grande de setParties para que salga una matriz cuadrada a lo sumo
-        n = random.randint(1, maxTam) 
+        l = len(setParties) # filas de la matriz
+        n = random.randint(1, maxTam) # columnas de la matriz
         shareGenerateMatrix = []
-        v = []
-        sBig = random.choice(setParties) # S elemento de setParties (A)
-        j = []
-        lambdaSub_i = []
-        mv = []
-        secret = Symbol('s') # el secreto que se comparte. Incógnita porque se va resolviendo (s en el documento)
-        res = 0
-        omega = []
 
         # matriz shareGenerateMatrix M
         for x in setParties:
@@ -98,6 +89,9 @@ class LSSS(object):
             shareGenerateMatrix[i] = e
 
         # preparando el vector v
+        v = []
+        secret = Symbol('s') # secreto que se guarda como incógnita
+
         v.append(secret)
 
         for r in range(2,n+1):
@@ -105,21 +99,36 @@ class LSSS(object):
             v.append(r)
 
         # vector resultante mv
+        mv = []
+
         shareGenerateMatrix = np.reshape(shareGenerateMatrix, (len(shareGenerateMatrix), n))
         v = np.reshape(v, (n,1))
         mv = np.dot(shareGenerateMatrix, v)
+
+        # función rho
+        def rho(numFila):
+            for i in range(len(mv)):
+                if(numFila - 1 == i): #contando desde 1 en vez de desde 0
+                    return mv[i]
+
+        # sBig cualquier conjunto de atributo autorizado
+        sBig = random.choice(LSSS.accessStructure(c)[1])
+
+        print(sBig)
+
+        # array j
+        j = []
+
+        for i in sBig:
+            if(rho(i) % i == 0):
+                j.append(i)
+
+        print(j)
 
         # cálculo de lambda sub i para hallar s
         for i in shareGenerateMatrix:
             res = np.dot(i,v)
             lambdaSub_i.append(res)
-
-        for i in range(l+1):
-            j.append(i+1)
-
-        for j in rho:
-            if(j in sBig):
-                continue
 
         zetas = BilinearMaps.BilinearMaps.zetaP(p)
         omega = zetas * (int(l / len(zetas)))
@@ -144,4 +153,4 @@ class LSSS(object):
         if((condition1 and condition2) == True):
             linear = True
 
-        return linear, mostrar
+        return linear
