@@ -71,13 +71,13 @@ class LSSS(object):
         n = random.randint(1, maxTam) 
         shareGenerateMatrix = []
         v = []
-        #sBig = random.choice(setParties) # S elemento de setParties (A)
+        sBig = random.choice(setParties) # S elemento de setParties (A)
         j = []
         lambdaSub_i = []
         mv = []
         secret = Symbol('s') # el secreto que se comparte. Incógnita porque se va resolviendo (s en el documento)
         res = 0
-        #omega = []
+        omega = []
 
         # matriz shareGenerateMatrix M
         for x in setParties:
@@ -117,25 +117,25 @@ class LSSS(object):
         for i in range(l+1):
             j.append(i+1)
 
-        #for j in rho:
-        #    if(j in sBig):
-        #        continue
+        for j in rho:
+            if(j in sBig):
+                continue
 
-        #zetas = BilinearMaps.BilinearMaps.zetaP(p)
-        #omega = zetas * (int(l / len(zetas)))
-        #resto = int(l % len(zetas))
-        #omega += zetas[:resto]
+        zetas = BilinearMaps.BilinearMaps.zetaP(p)
+        omega = zetas * (int(l / len(zetas)))
+        resto = int(l % len(zetas))
+        omega += zetas[:resto]
 
         # sumatorio para hallar el secreto
-        #sumatorio = 0
-        #mul = []
-        #mul = [(i * j) for i, j in zip(lambdaSub_i, omega)]
-        #sumatorio = sum(list(mul))
+        sumatorio = 0
+        mul = []
+        mul = [(i * j) for i, j in zip(lambdaSub_i, omega)]
+        sumatorio = sum(list(mul))
 
         ecuation = 0
         #ecuation = secret - sumatorio
-        #ecuation = mv - sumatorio
-        ecuation = mv - lambdaSub_i
+        ecuation = mv - sumatorio
+        #ecuation = mv - lambdaSub_i
         mostrar = solve(ecuation)
 
         # ya devolvemos un valor booleano que confirma (o no) si el esquema de compartición secreta es bilineal
