@@ -144,4 +144,4 @@ class LSSS(object):
         if((condition1 and condition2) == True):
             linear = True
 
-        return linear, mostrar
+        return linear, mostrar, shareGenerateMatrix

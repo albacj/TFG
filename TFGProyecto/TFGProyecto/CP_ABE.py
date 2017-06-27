@@ -1,5 +1,10 @@
 import BilinearMaps
 import random
+import LSSS
+
+import numpy as np
+
+from sympy import Symbol, solve
 
 class CP_ABE(object):
     
@@ -91,9 +96,47 @@ class CP_ABE(object):
 
         return sk
 
-    def encrypt(pk,message,structureA):
-        pass
-        #devuelve ct
+    def encrypt(pk,message,matrizGen,p):
+        ct = []
+        m = np.array(matrizGen)
+        dim = m.shape
+        filas = dim[0]
+        columnas = dim[1]
+
+        # se elige un vector v aleatorio
+        v = []
+        secret = Symbol('s') # secreto que se guarda como incógnita
+
+        v.append(secret)
+
+        for r in range(2,columnas + 1):
+            r = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
+            v.append(r)
+
+        # lambdas
+        lambdas_i = []
+
+        for i in matrizGen:
+            resParcial = np.dot(i,v)
+            lambdas_i.append(resParcial)
+
+        # elegir aleatoriamente l elementos de zetaP
+        erres = []
+
+        for r in range(filas):
+            r = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
+            erres.append(r)
+
+        # función rho
+        #def rho(numFila):
+        #    for i in range(len(mv)):
+        #        if(numFila - 1 == i): #contando desde 1 en vez de desde 0
+        #            return mv[i]
+
+
+        ct.append(matrix)
+        #ct.append(funRho)
+        return ct
 
     def decrypt(pk,sk,ct):
         pass

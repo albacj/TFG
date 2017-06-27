@@ -320,4 +320,8 @@ print(CP_ABE.CP_ABE.keyGen(msk, h, 11, gElevaleA))
 
 print("\n")
 
-print(CP_ABE.CP_ABE.encrypt(pk,"hello world",structureA)) # sustituir si es necesario
+esBool, parties, setA, setB, setC, tamParties = LSSS.LSSS.accessStructure(ciclo1)
+linear, mostrar, shareGenerateMatrix = LSSS.LSSS.lsss(ciclo1,11)
+
+print("Encrypt: ")
+print(CP_ABE.CP_ABE.encrypt(pk,"hello world", shareGenerateMatrix, 11)) # sustituir si es necesario
