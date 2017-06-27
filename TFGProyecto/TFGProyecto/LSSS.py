@@ -113,39 +113,30 @@ class LSSS(object):
 
         # sBig cualquier conjunto de atributo autorizado
         sBig = random.choice(LSSS.accessStructure(c)[1])
-
-        print(sBig)
-
-        # array j
-        j = []
-
-        for i in sBig:
-            if(rho(i) % i == 0):
-                j.append(i)
-
-        print(j)
+        sBig = sorted(sBig)
 
         # cálculo de lambda sub i para hallar s
+        res = []
+        lambdaSub_i = []
+
         for i in shareGenerateMatrix:
             res = np.dot(i,v)
             lambdaSub_i.append(res)
 
-        zetas = BilinearMaps.BilinearMaps.zetaP(p)
-        omega = zetas * (int(l / len(zetas)))
-        resto = int(l % len(zetas))
-        omega += zetas[:resto]
+        # omega (constantes)
+        omega = []
+        
+        for x in range(len(lambdaSub_i)):
+            omega.append((x+1) % p)
 
         # sumatorio para hallar el secreto
         sumatorio = 0
         mul = []
+        mostrar = 0
+
         mul = [(i * j) for i, j in zip(lambdaSub_i, omega)]
         sumatorio = sum(list(mul))
-
-        ecuation = 0
-        #ecuation = secret - sumatorio
-        ecuation = mv - sumatorio
-        #ecuation = mv - lambdaSub_i
-        mostrar = solve(ecuation)
+        mostrar = solve(sumatorio - secret)
 
         # ya devolvemos un valor booleano que confirma (o no) si el esquema de compartición secreta es bilineal
         condition2 = True
@@ -153,4 +144,4 @@ class LSSS(object):
         if((condition1 and condition2) == True):
             linear = True
 
-        return linear
+        return linear, mostrar
