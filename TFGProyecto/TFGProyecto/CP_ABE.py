@@ -41,7 +41,7 @@ class CP_ABE(object):
        eMapElevate = []
 
        group, g = BilinearMaps.BilinearMaps.cyclic(p)
-       eMap = BilinearMaps.BilinearMaps.e(group, group)
+       eMap = BilinearMaps.BilinearMaps.e(g, g)
 
        def isOk(group):
            ok = False
@@ -65,8 +65,9 @@ class CP_ABE(object):
             
            msk = g ** alpha
 
-           for elem in eMap:
-               eMapElevate.append(elem ** alpha)
+          #for elem in eMap:
+          #    eMapElevate.append(elem ** alpha)
+           eMapElevate = eMap ** alpha
 
            gElevateA = g ** a
 
@@ -164,7 +165,7 @@ class CP_ABE(object):
 
         # C
         group, g = BilinearMaps.BilinearMaps.cyclic(p)
-        eMap = BilinearMaps.BilinearMaps.e(group, group)
+        eMap = BilinearMaps.BilinearMaps.e(g, g)
 
         eGroupElevate = eMap**(secret * alfa)
         c = decMessage * eGroupElevate
@@ -172,7 +173,7 @@ class CP_ABE(object):
         # C'
         cPrime = g ** secret
 
-        ct.append(matrix)
+        ct.append(m)
         ct.append(funRho)
         ct.append(c)
         ct.append(cPrime)
