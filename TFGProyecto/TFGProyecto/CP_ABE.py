@@ -1,10 +1,12 @@
 import BilinearMaps
 import random
 import LSSS
+import binascii
 
 import numpy as np
 
 from sympy import Symbol, solve
+from bitstring import BitArray
 
 class CP_ABE(object):
     
@@ -17,6 +19,7 @@ class CP_ABE(object):
         self.n = n
         self.p = p
 
+    # PHI
     def phiFunction(n): #n es un numero dado
         
         def isPrime(a):
@@ -30,6 +33,7 @@ class CP_ABE(object):
 
         return int(y)
 
+    # SETUP
     def setup(phi,u,p): # u es el número de usuarios
        pk = []
        msk = 0
@@ -72,8 +76,9 @@ class CP_ABE(object):
            pk.append(g ** a)
            pk.append(h)
 
-       return pk, msk, gElevateA, h   
+       return pk, msk, gElevateA, h, alpha 
 
+    # KEY GENERATE
     def keyGen(msk,h,p, gElevateA):
         sk = []
         k = 0
@@ -96,7 +101,8 @@ class CP_ABE(object):
 
         return sk
 
-    def encrypt(pk,message,matrizGen,p):
+    # ENCRYPT
+    def encrypt(pk,message,matrizGen,p,alfa):
         ct = []
         m = np.array(matrizGen)
         dim = m.shape
@@ -113,6 +119,10 @@ class CP_ABE(object):
             r = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
             v.append(r)
 
+        # M*v
+        mv = []
+        mv = np.dot(m,v)
+
         # lambdas
         lambdas_i = []
 
@@ -128,16 +138,47 @@ class CP_ABE(object):
             erres.append(r)
 
         # función rho
-        #def rho(numFila):
-        #    for i in range(len(mv)):
-        #        if(numFila - 1 == i): #contando desde 1 en vez de desde 0
-        #            return mv[i]
+        def rho(numFila):
+            for i in range(len(mv)):
+                if(numFila - 1 == i): #contando desde 1 en vez de desde 0
+                    return mv[i]
 
+        # claves de grupo de atributos
+        rhos = []
+
+        for i in range(filas):
+            funRho = rho(i+1)
+            rhos.append(funRho)
+
+        keys = []
+
+        for k in range(len(rhos)):
+            k = random.choice(BilinearMaps.BilinearMaps.zetaP(p))
+            keys.append(k)
+
+        # mensaje para encriptar
+        binMessage = ' '.join(map(bin,bytearray(message,'utf8')))
+        binMessage = binMessage.replace('0b', '')
+        binMessage = binMessage.replace(' ',"")
+        decMessage = int(binMessage,2)
+
+        # C
+        group, g = BilinearMaps.BilinearMaps.cyclic(p)
+        eMap = BilinearMaps.BilinearMaps.e(group, group)
+
+        eGroupElevate = eMap**(secret * alfa)
+        c = decMessage * eGroupElevate
+
+        # C'
+        cPrime = g ** secret
 
         ct.append(matrix)
-        #ct.append(funRho)
+        ct.append(funRho)
+        ct.append(c)
+        ct.append(cPrime)
         return ct
 
+    # DECRYPT
     def decrypt(pk,sk,ct):
         pass
         #devuelve message
