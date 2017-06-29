@@ -77,7 +77,7 @@ class CP_ABE(object):
            pk.append(g ** a)
            pk.append(h)
 
-       return pk, msk, gElevateA, h, alpha 
+       return pk, msk, gElevateA, h, alpha, a 
 
     # KEY GENERATE
     def keyGen(msk,h,p, gElevateA):
@@ -103,7 +103,7 @@ class CP_ABE(object):
         return sk
 
     # ENCRYPT
-    def encrypt(pk,message,matrizGen,p,alfa):
+    def encrypt(pk,message,matrizGen,p,alfa,haches,a):
         ct = []
         m = np.array(matrizGen)
         dim = m.shape
@@ -173,11 +173,21 @@ class CP_ABE(object):
         # C'
         cPrime = g ** secret
 
+        # Ci y D'
+        for i in range(len(haches)):
+            ge = g**(a*lambdas_i[i])
+            hElevate = haches[i]**(-erres[i])
+            ci = ge*hElevate
+            dPrime = (g**erres[i])**(1/keys[i])
+
+        # devuelvo todo
         ct.append(m)
         ct.append(funRho)
         ct.append(c)
         ct.append(cPrime)
-        return ct
+        ct.append(ci)
+        ct.append(dPrime)
+        return list(ct)
 
     # DECRYPT
     def decrypt(pk,sk,ct):

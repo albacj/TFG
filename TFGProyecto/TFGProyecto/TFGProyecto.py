@@ -309,7 +309,7 @@ print(CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, 11))
 
 print("\n")
 
-pk, msk, gElevaleA, h, alfa = CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, 11) 
+pk, msk, gElevaleA, h, alfa, a = CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, 11) 
 
 print("KeyGen: ")
 print(CP_ABE.CP_ABE.keyGen(msk, h, 11, gElevaleA))
@@ -324,4 +324,14 @@ esBool, parties, setA, setB, setC, tamParties = LSSS.LSSS.accessStructure(ciclo1
 linear, mostrar, shareGenerateMatrix = LSSS.LSSS.lsss(ciclo1,11)
 
 print("Encrypt: ")
-print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa)) # sustituir si es necesario
+print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa, h, a))
+
+'''
+[([[ 2,  0,  0,  0,  0],
+   [ 4,  0,  0,  0,  0],
+   [ 8,  0,  0,  0,  0],
+       ...,
+   [ 2,  8,  5, 10,  9],
+   [ 4,  8,  5, 10,  9],
+   [ 2,  4,  8,  5, 10]]), 2*s + 138, 28130883183*4**s, 2**s, 0.001953125*2**(40*s), 1.2311444133449163]
+'''
