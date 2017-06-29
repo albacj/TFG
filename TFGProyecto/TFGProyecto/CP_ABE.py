@@ -166,7 +166,6 @@ class CP_ABE(object):
         # C
         group, g = BilinearMaps.BilinearMaps.cyclic(p)
         eMap = BilinearMaps.BilinearMaps.e(g, g)
-
         eGroupElevate = eMap**(secret * alfa)
         c = decMessage * eGroupElevate
 
@@ -190,6 +189,20 @@ class CP_ABE(object):
         return list(ct)
 
     # DECRYPT
-    def decrypt(pk,sk,ct):
-        pass
-        #devuelve message
+    def decrypt(pk,sk,ct,alfa,p):
+        c = ct[2]
+        
+        # tc
+        secret = Symbol('s')
+        group, g = BilinearMaps.BilinearMaps.cyclic(p)
+        eMap = BilinearMaps.BilinearMaps.e(g, g)
+        tc = eMap**(secret * alfa)
+
+        # c/tc
+        m = c/tc
+        
+        # incógnita del mensaje m
+        binM = bin(m)[2:]
+        print(binM)
+        
+        return message

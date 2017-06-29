@@ -335,3 +335,11 @@ print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa, h, a))
    [ 4,  8,  5, 10,  9],
    [ 2,  4,  8,  5, 10]]), 2*s + 138, 28130883183*4**s, 2**s, 0.001953125*2**(40*s), 1.2311444133449163]
 '''
+
+print("\n")
+
+sk = CP_ABE.CP_ABE.keyGen(msk,h,11,gElevaleA)
+ct = CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa, h, a)
+
+print("Decrypt: ")
+print(CP_ABE.CP_ABE.decrypt(pk,sk,ct,alfa,11))
