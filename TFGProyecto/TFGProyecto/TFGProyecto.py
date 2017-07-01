@@ -343,3 +343,7 @@ ct = CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa, h, a)
 
 print("Decrypt: ")
 print(CP_ABE.CP_ABE.decrypt(pk,sk,ct,alfa,11))
+
+'''
+hello
+'''

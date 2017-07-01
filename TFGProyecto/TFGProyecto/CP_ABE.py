@@ -203,6 +203,17 @@ class CP_ABE(object):
         
         # incógnita del mensaje m
         binM = bin(m)[2:]
-        print(binM)
-        
+        mInBytes = []
+
+        tamBits = len(binM)
+        segmentLength = 7
+        tamBits = (int)(tamBits / segmentLength)
+
+        for i in range(tamBits):
+            aux = i*segmentLength
+            mInBytes.append("0" + binM[aux:aux+segmentLength])
+
+        message = ''
+        for char in mInBytes:
+            message += chr(int(char,2))
         return message
