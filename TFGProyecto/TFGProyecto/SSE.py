@@ -3,9 +3,27 @@ class SSE(object):
     def __init__(self, k, sek, d, w):
         self.k = k
 
-    def ssKeyGen():
-        pass
-        #devuelve sek
+    def ssKeyGen(k):
+        sek = []
+
+        # parámetros de seguridad
+        k = k
+        #ls =
+        #ps =
+
+        # algoritmo de encriptación simétrico
+
+        # tam texto plano
+        
+        fileText = open("C:/Users/Alba/Documents/TFG/ExampleText.txt", "r")
+        content = fileText.read()
+        
+        for char in fileText:
+            print(char)
+
+        #fileText.close()
+
+        return sek
     
     def buildIndex(sek, d):
         pass
