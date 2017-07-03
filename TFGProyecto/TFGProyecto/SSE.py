@@ -3,8 +3,8 @@ class SSE(object):
     def __init__(self, k, sek, d, w):
         self.k = k
 
-    def ssKeyGen(k):
-        elevateToK = 1**k
+    def ssKeyGen():
+        pass
         #devuelve sek
     
     def buildIndex(sek, d):

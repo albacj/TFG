@@ -1,0 +1,2 @@
+This is a example plaintext. 
+This is for read it and run in the project.
