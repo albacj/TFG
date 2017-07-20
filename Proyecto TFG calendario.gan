@@ -1,41 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto TFG" company="" webLink="http://" view-date="2016-09-01" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.5" locale="es_ES">
+<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto TFG" company="" webLink="http://" view-date="2017-07-17" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.0">
     <description/>
-    <view zooming-state="default:9" id="gantt-chart">
-        <field id="tpd3" name="Nombre" width="132" order="0"/>
-        <field id="tpd4" name="Fecha de inicio" width="88" order="1"/>
-        <field id="tpd5" name="Fecha de fin" width="76" order="2"/>
-        <timeline><![CDATA[0]]></timeline>
-    </view>
+    <view zooming-state="default:3" id="gantt-chart"/>
     <view id="resource-table">
-        <field id="0" name="Nombre" width="210" order="0"/>
-        <field id="1" name="Función" width="86" order="1"/>
+        <field id="0" name="Nombre" width="54" order="1"/>
+        <field id="1" name="Función" width="45" order="3"/>
     </view>
     <!-- -->
     <calendars>
         <day-types>
             <day-type id="0"/>
             <day-type id="1"/>
-            <default-week id="1" name="default" sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
-            <only-show-weekends value="false"/>
-            <overriden-day-types/>
-            <days/>
+            <calendar id="1" name="default">
+                <default-week sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
+                <overriden-day-types/>
+                <days/>
+            </calendar>
         </day-types>
-        <date year="" month="1" date="1" type="HOLIDAY"><![CDATA[New Year's Day]]></date>
-        <date year="" month="1" date="6" type="HOLIDAY"><![CDATA[Epiphany]]></date>
-        <date year="" month="5" date="1" type="HOLIDAY"><![CDATA[Labour Day]]></date>
-        <date year="" month="8" date="15" type="HOLIDAY"><![CDATA[Assumption Day]]></date>
-        <date year="" month="10" date="12" type="HOLIDAY"><![CDATA[Hispanic Day]]></date>
-        <date year="" month="11" date="1" type="HOLIDAY"><![CDATA[All Saints Day]]></date>
-        <date year="" month="12" date="6" type="HOLIDAY"><![CDATA[Constitution Day]]></date>
-        <date year="" month="12" date="8" type="HOLIDAY"><![CDATA[Immaculate Conception Day]]></date>
-        <date year="" month="12" date="25" type="HOLIDAY"><![CDATA[Christmas Day]]></date>
-        <date year="2016" month="3" date="24" type="HOLIDAY"><![CDATA[Maundy Thursday]]></date>
-        <date year="2016" month="3" date="25" type="HOLIDAY"><![CDATA[Good Friday]]></date>
-        <date year="2017" month="1" date="2" type="HOLIDAY"><![CDATA[New Year's Holiday]]></date>
-        <date year="2017" month="4" date="13" type="HOLIDAY"><![CDATA[Maundy Thursday]]></date>
-        <date year="2017" month="4" date="14" type="HOLIDAY"><![CDATA[Good Friday]]></date>
+        <date year="" month="1" date="1"/>
+        <date year="" month="1" date="6"/>
+        <date year="" month="5" date="1"/>
+        <date year="" month="8" date="15"/>
+        <date year="" month="10" date="12"/>
+        <date year="" month="11" date="1"/>
+        <date year="" month="12" date="6"/>
+        <date year="" month="12" date="8"/>
+        <date year="" month="12" date="25"/>
+        <date year="2016" month="3" date="24"/>
+        <date year="2016" month="3" date="25"/>
+        <date year="2017" month="1" date="2"/>
+        <date year="2017" month="4" date="13"/>
+        <date year="2017" month="4" date="14"/>
     </calendars>
-    <tasks empty-milestones="true">
+    <tasks color="#8cb6ce">
         <taskproperties>
             <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
             <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
@@ -48,25 +44,25 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Programación" color="#8cb6ce" meeting="false" start="2017-01-22" duration="142" complete="0" priority="4" webLink="https%3A%2F%2Fgithub.com%2Falbacj%2FTFG" expand="true"/>
-        <task id="6" name="Redacción de la memoria" color="#8cb6ce" meeting="false" start="2017-02-27" duration="106" complete="0" expand="true"/>
-        <task id="9" name="Tutoría inicial" color="#8cb6ce" meeting="false" start="2016-09-05" duration="1" complete="0" expand="true"/>
-        <task id="11" name="Tutoría tema definitivo" color="#8cb6ce" meeting="false" start="2016-10-07" duration="1" complete="0" expand="true"/>
-        <task id="13" name="Tutoría marzo" color="#8cb6ce" meeting="false" start="2017-03-21" duration="1" complete="0" expand="true"/>
-        <task id="15" name="Tutoría mayo" color="#8cb6ce" meeting="false" start="2017-05-23" duration="1" complete="0" expand="true"/>
-        <task id="19" name="Tutoría junio" color="#8cb6ce" meeting="false" start="2017-06-16" duration="1" complete="0" expand="true"/>
+        <task id="0" name="Programación" color="#8cb6ce" meeting="false" start="2017-01-22" duration="145" complete="0" priority="4" webLink="https%3A%2F%2Fgithub.com%2Falbacj%2FTFG" expand="true"/>
+        <task id="6" name="Redacción de la memoria" color="#8cb6ce" meeting="false" start="2017-02-27" duration="109" complete="0" priority="1" expand="true"/>
+        <task id="9" name="Tutoría inicial" color="#8cb6ce" meeting="false" start="2016-09-05" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="11" name="Tutoría tema definitivo" color="#8cb6ce" meeting="false" start="2016-10-07" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="13" name="Tutoría marzo" color="#8cb6ce" meeting="false" start="2017-03-21" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="15" name="Tutoría mayo" color="#8cb6ce" meeting="false" start="2017-05-23" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="19" name="Tutoría junio" color="#8cb6ce" meeting="false" start="2017-06-16" duration="1" complete="0" priority="1" expand="true"/>
+        <task id="20" name="Tutoría julio" color="#8cb6ce" meeting="false" start="2017-07-19" duration="1" complete="0" thirdDate="2017-07-19" thirdDate-constraint="0" priority="2" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Programador" function="Default:1" contacts="" phone=""/>
-        <resource id="1" name="Ordenador" function="Default:0" contacts="" phone="">
-            <rate name="standard" value="36000"/>
-        </resource>
+        <resource id="1" name="Ordenador" function="Default:0" contacts="" phone=""/>
     </resources>
     <allocations>
         <allocation task-id="0" resource-id="0" function="Default:1" responsible="true" load="1.0"/>
         <allocation task-id="6" resource-id="1" function="Default:0" responsible="true" load="1.0"/>
     </allocations>
     <vacations/>
+    <taskdisplaycolumns/>
     <previous/>
     <roles roleset-name="Default"/>
     <roles roleset-name="SoftwareDevelopment"/>
