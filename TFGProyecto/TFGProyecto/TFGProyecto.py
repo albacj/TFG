@@ -353,4 +353,8 @@ hello
 
 print("\n")
 print("SSKeyGen: ")
-print(SSE.SSE.ssKeyGen(numUsers))
+print(SSE.SSE.ssKeyGen(numUsers, 11))
+
+'''
+[6, 6, 6, 4, [1, 1, 1, 1, 1]]
+'''
