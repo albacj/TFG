@@ -80,15 +80,64 @@ class SSE(object):
         sek.append(eta)
         sek.append(oneLs)
 
-        return sek
+        return sek, delta, z, f, y, mi, eta
     
-    def buildIndex(sek, d):
-        pass
-        #devuelve indice i
+#    def buildIndex(sek, d):
+#        pass
+#        #devuelve indice i
 
-    def trapdoor(sek, w):
-        pass
-        #devuelve tw
+    def trapdoor(sek, wi, delta, z, f, y, mi, eta):
+        y = sek[1]
+        z = sek[2]
+
+        wordNum = []
+        
+        for letter in wi:
+            wordNum.append(ord(letter))
+
+        # asocio a wordNum un único número multiplicando sus elementos
+        for num in wordNum:
+            mul = 1
+            mul = mul * num
+
+        mulZ = mul * z
+
+        # delta sub z
+        deltaZ = []
+
+        for i in delta:
+            if(i == 1):
+                deltaZ.append(mulZ)
+            else:
+                deltaZ.append(0)
+
+        # función sub y
+        fY = []
+        mulY = mul * y
+
+        for i in f:
+            if(i == 1):
+                fY.append(mulY)
+            else:
+                fY.append(0)
+
+        # TW'i
+        twPrimei = []
+        twPrimei.append(deltaZ)
+        twPrimei.append(fY)
+
+        # mi y eta
+        mulEta = []
+
+        for elem in twPrimei:
+            mulEta.append(elem * eta)
+
+        print(mulEta)
+
+        # TWi
+        twi = []
+
+        return twi
 
     def search(i,tw):
         pass
