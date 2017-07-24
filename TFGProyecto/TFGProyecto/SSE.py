@@ -1,5 +1,6 @@
 import random
 import math
+import numpy as np
 
 class SSE(object):
     
@@ -30,7 +31,6 @@ class SSE(object):
             # recorre línea a línea el archivo
             for linea in fichero:
                 # muestra línea última leída
-                #print(linea)
                 lineas.append(linea)
 
         for l in lineas:
@@ -80,13 +80,13 @@ class SSE(object):
         sek.append(eta)
         sek.append(oneLs)
 
-        return sek, delta, z, f, y, mi, eta
+        return sek, delta, z, f, y, mi
     
 #    def buildIndex(sek, d):
 #        pass
 #        #devuelve indice i
 
-    def trapdoor(sek, wi, delta, z, f, y, mi, eta):
+    def trapdoor(sek, wi, delta, z, f, y, mi):
         y = sek[1]
         z = sek[2]
 
@@ -130,12 +130,16 @@ class SSE(object):
         mulEta = []
 
         for elem in twPrimei:
-            mulEta.append(elem * eta)
-
-        print(mulEta)
+            mulEta.append(np.dot(sek[3],elem))
 
         # TWi
         twi = []
+        
+        for i in mi:
+            if(i == 1):
+                twi.append(mulEta)
+            else:
+                twi.append(0)
 
         return twi
 

@@ -359,8 +359,8 @@ print(SSE.SSE.ssKeyGen(numUsers, 11))
 [6, 6, 6, 4, [1, 1, 1, 1, 1]]
 '''
 
-sek, delta, z, f, y, mi, eta = SSE.SSE.ssKeyGen(numUsers, 11)
+sek, delta, z, f, y, mi = SSE.SSE.ssKeyGen(numUsers, 11)
 
 print("\n")
 print("Trapdoor: ")
-print(SSE.SSE.trapdoor(sek, "is", delta, z, f, y, mi, eta))
+print(SSE.SSE.trapdoor(sek, "is", delta, z, f, y, mi))
