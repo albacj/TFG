@@ -3,8 +3,14 @@ import LSSS
 import CP_ABE
 import SSE
 
-ciclo1, generador1= BilinearMaps.BilinearMaps.cyclic(11)
-ciclo2, generador2 = BilinearMaps.BilinearMaps.cyclic(7)
+from time import time
+
+primeNumber = 17
+
+initialTime = time()
+
+ciclo1, generador1= BilinearMaps.BilinearMaps.cyclic(primeNumber)
+#ciclo2, generador2 = BilinearMaps.BilinearMaps.cyclic(7)
 
 print("Ciclo 1: ")
 print(ciclo1, generador1)
@@ -16,8 +22,8 @@ Ciclo 1:
 
 print("\n")
 
-print("Ciclo 2: ")
-print(ciclo2, generador2)
+#print("Ciclo 2: ")
+#print(ciclo2, generador2)
 
 '''
 Ciclo 2:
@@ -34,10 +40,10 @@ G x G -> Gt1:
 [  4  16  64  25 100  81  49   9  36   1]
 '''
 
-print("\n")
+#print("\n")
 
-print("G x G -> Gt2: ")
-print(BilinearMaps.BilinearMaps.e(ciclo2, ciclo2))
+#print("G x G -> Gt2: ")
+#print(BilinearMaps.BilinearMaps.e(ciclo2, ciclo2))
 
 '''
 G x G -> Gt2:
@@ -282,7 +288,7 @@ Access structure:
 print("\n")
 
 print("LSSS: is linear: ")
-print(LSSS.LSSS.lsss(ciclo1,11))
+print(LSSS.LSSS.lsss(ciclo1,primeNumber))
 
 '''
 True
@@ -303,7 +309,7 @@ print("\n")
 numUsers = 7 # k posteriormente
 
 print("Setup: ")
-print(CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), numUsers, 11))
+print(CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), numUsers, primeNumber))
 
 '''
 ([[2, 4, 8, 5, 10, 9, 7, 3, 6, 1], 2, [16384, 268435456, 0, 1808548329, 276447232, 1796636465, -381759919, 4782969, 1054752768, 1], 8, [4, 5, 9]], 
@@ -312,10 +318,10 @@ print(CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), numUsers, 11))
 
 print("\n")
 
-pk, msk, gElevaleA, h, alfa, a = CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, 11) 
+pk, msk, gElevaleA, h, alfa, a = CP_ABE.CP_ABE.setup(CP_ABE.CP_ABE.phiFunction(16), 3, primeNumber) 
 
 print("KeyGen: ")
-print(CP_ABE.CP_ABE.keyGen(msk, h, 11, gElevaleA))
+print(CP_ABE.CP_ABE.keyGen(msk, h, primeNumber, gElevaleA))
 
 '''
 [4096, 2, [3, 4, 8]]
@@ -324,10 +330,10 @@ print(CP_ABE.CP_ABE.keyGen(msk, h, 11, gElevaleA))
 print("\n")
 
 esBool, parties, setA, setB, setC, tamParties = LSSS.LSSS.accessStructure(ciclo1)
-linear, mostrar, shareGenerateMatrix = LSSS.LSSS.lsss(ciclo1,11)
+linear, mostrar, shareGenerateMatrix = LSSS.LSSS.lsss(ciclo1,primeNumber)
 
 print("Encrypt: ")
-print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa, h, a))
+print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, primeNumber, alfa, h, a))
 
 '''
 [([[ 2,  0,  0,  0,  0],
@@ -336,16 +342,16 @@ print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa, h, a))
        ...,
    [ 2,  8,  5, 10,  9],
    [ 4,  8,  5, 10,  9],
-   [ 2,  4,  8,  5, 10]]), 2*s + 138, 28130883183*4**s, 2**s, 0.001953125*2**(40*s), 1.2311444133449163]
+   [ 2,  4,  8,  5, 10]]), 2*s + 138, 28130883183*4**s, 2**s, 0.001953125*2**(40*s), 1.23primeNumber444133449163]
 '''
 
 print("\n")
 
-sk = CP_ABE.CP_ABE.keyGen(msk,h,11,gElevaleA)
-ct = CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, 11, alfa, h, a)
+sk = CP_ABE.CP_ABE.keyGen(msk,h,primeNumber,gElevaleA)
+ct = CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, primeNumber, alfa, h, a)
 
 print("Decrypt: ")
-print(CP_ABE.CP_ABE.decrypt(pk,sk,ct,alfa,11))
+print(CP_ABE.CP_ABE.decrypt(pk,sk,ct,alfa,primeNumber))
 
 '''
 hello
@@ -353,14 +359,20 @@ hello
 
 print("\n")
 print("SSKeyGen: ")
-print(SSE.SSE.ssKeyGen(numUsers, 11))
+print(SSE.SSE.ssKeyGen(numUsers, primeNumber))
 
 '''
 [6, 6, 6, 4, [1, 1, 1, 1, 1]]
 '''
 
-sek, delta, z, f, y, mi = SSE.SSE.ssKeyGen(numUsers, 11)
+sek, delta, z, f, y, mi = SSE.SSE.ssKeyGen(numUsers, primeNumber)
 
 print("\n")
 print("Trapdoor: ")
 print(SSE.SSE.trapdoor(sek, "is", delta, z, f, y, mi))
+
+finalTime = time()
+
+ejecutionTime = finalTime - initialTime
+
+print("Ha tardado ", ejecutionTime, " segundos.")
