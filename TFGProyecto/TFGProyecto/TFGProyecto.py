@@ -5,7 +5,7 @@ import SSE
 
 from time import time
 
-primeNumber = 17
+primeNumber = 3
 
 initialTime = time()
 
@@ -348,7 +348,7 @@ print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, primeNumber, alfa, 
 print("\n")
 
 sk = CP_ABE.CP_ABE.keyGen(msk,h,primeNumber,gElevaleA)
-ct = CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, primeNumber, alfa, h, a)
+ct = CP_ABE.CP_ABE.encrypt(pk,"Lorem", shareGenerateMatrix, primeNumber, alfa, h, a)
 
 print("Decrypt: ")
 print(CP_ABE.CP_ABE.decrypt(pk,sk,ct,alfa,primeNumber))
