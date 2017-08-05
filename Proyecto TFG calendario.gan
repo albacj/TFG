@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto TFG" company="" webLink="http://" view-date="2016-10-31" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.0">
+<?xml version="1.0" encoding="UTF-8"?><project name="Proyecto TFG" company="" webLink="http://" view-date="2016-08-08" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.0">
     <description/>
     <view zooming-state="default:8" id="gantt-chart"/>
     <view id="resource-table">
@@ -44,8 +44,8 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Programación" color="#8cb6ce" meeting="false" start="2017-01-22" duration="154" complete="0" priority="4" webLink="https%3A%2F%2Fgithub.com%2Falbacj%2FTFG" expand="true"/>
-        <task id="6" name="Redacción de la memoria" color="#8cb6ce" meeting="false" start="2017-02-27" duration="190" complete="0" priority="1" expand="true"/>
+        <task id="0" name="Programación" color="#8cb6ce" meeting="false" start="2017-01-22" duration="157" complete="0" priority="4" webLink="https%3A%2F%2Fgithub.com%2Falbacj%2FTFG" expand="true"/>
+        <task id="6" name="Redacción de la memoria" color="#8cb6ce" meeting="false" start="2017-02-27" duration="194" complete="0" priority="1" expand="true"/>
         <task id="9" name="Tutoría inicial" color="#8cb6ce" meeting="false" start="2016-09-05" duration="1" complete="0" priority="1" expand="true"/>
         <task id="11" name="Tutoría tema definitivo" color="#8cb6ce" meeting="false" start="2016-10-07" duration="1" complete="0" priority="1" expand="true"/>
         <task id="13" name="Tutoría marzo" color="#8cb6ce" meeting="false" start="2017-03-21" duration="1" complete="0" priority="1" expand="true"/>
@@ -56,6 +56,7 @@
         <task id="22" name="Entrega de la memoria v1" color="#8cb6ce" meeting="true" start="2017-09-01" duration="1" complete="0" priority="1" expand="true"/>
         <task id="23" name="Tutoría aclaratoria" color="#8cb6ce" meeting="false" start="2017-09-04" duration="1" complete="0" priority="1" expand="true"/>
         <task id="24" name="Defensa del proyecto" color="#8cb6ce" meeting="false" start="2017-09-18" duration="4" complete="0" priority="1" expand="true"/>
+        <task id="25" name="Entrega definitiva de la memoria" color="#8cb6ce" meeting="true" start="2017-09-08" duration="1" complete="0" priority="1" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Programador" function="Default:1" contacts="" phone=""/>
