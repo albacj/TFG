@@ -5,7 +5,7 @@ import SSE
 
 from time import time
 
-primeNumber = 3
+primeNumber = 11
 
 initialTime = time()
 
@@ -342,7 +342,7 @@ print(CP_ABE.CP_ABE.encrypt(pk,"hello", shareGenerateMatrix, primeNumber, alfa, 
        ...,
    [ 2,  8,  5, 10,  9],
    [ 4,  8,  5, 10,  9],
-   [ 2,  4,  8,  5, 10]]), 2*s + 138, 28130883183*4**s, 2**s, 0.001953125*2**(40*s), 1.23primeNumber444133449163]
+   [ 2,  4,  8,  5, 10]]), 2*s + 138, 28130883183*4**s, 2**s, 0.001953125*2**(40*s), 1.2311444133449163]
 '''
 
 print("\n")
@@ -370,6 +370,12 @@ sek, delta, z, f, y, mi = SSE.SSE.ssKeyGen(numUsers, primeNumber)
 print("\n")
 print("Trapdoor: ")
 print(SSE.SSE.trapdoor(sek, "is", delta, z, f, y, mi))
+
+'''
+[[([0]), ([5750,    0,    0, 5750, 5750,    0])], [([0]), ([5750,    0,    0, 5750, 5750,    0])], 0, 
+[([0]), ([5750,    0,    0, 5750, 5750,    0])], 0, [([0]), ([5750,    0,    0, 5750, 5750,    0])], 
+[([0]), ([5750,    0,    0, 5750, 5750,    0])]]
+'''
 
 finalTime = time()
 
