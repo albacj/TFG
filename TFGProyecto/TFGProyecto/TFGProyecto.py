@@ -5,6 +5,19 @@ import SSE
 
 from time import time
 
+#==================================================================#
+#
+# BIENVENIDO
+# Usted está viendo la implementación asociada al esquema DASS.
+#
+# Sólo tiene que poner un número en la variable primeNumber
+# y dar al botón Adjuntar para analizar el coste computacional
+# en el comando de salida.
+#
+# Trabajo realizado por ALBA CARMONA JAMARDO
+#
+#==================================================================#
+
 primeNumber = 11
 
 initialTime = time()
