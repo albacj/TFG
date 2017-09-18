@@ -18,7 +18,7 @@ from time import time
 #
 #==================================================================#
 
-primeNumber = 11
+primeNumber = 7
 
 initialTime = time()
 
